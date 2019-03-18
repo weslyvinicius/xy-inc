@@ -25,14 +25,14 @@ public class Estabelecimento extends AbstractEntity {
 
     @Min(0)
     @Column(name = "posicao_x", nullable = false)
-    private Long posicaoX;
+    private Integer posicaoX;
 
     @Min(0)
-    @Column(name = "posicao_x", nullable = false)
-    private Long posicaoY;
+    @Column(name = "posicao_y", nullable = false)
+    private Integer posicaoY;
 
     @Builder
-    public Estabelecimento(Long id, String nome, Long posicaoX, Long posicaoY) {
+    public Estabelecimento(Long id, String nome, Integer posicaoX, Integer posicaoY) {
         this.id = id;
         this.nome = nome;
         this.posicaoX = posicaoX;
