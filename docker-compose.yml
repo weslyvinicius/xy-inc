@@ -1,0 +1,18 @@
+version: "3"
+services:
+  mydbSql-Sever:
+    image: mysql/mysql-server:5.7
+    volumes:
+      - v-db-Mysql-zup:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=teste_zup
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    ports:
+      - 3306:3306
+    networks:
+      - network1
+volumes:
+  v-db-Mysql-zup:
+networks:
+  network1:   
