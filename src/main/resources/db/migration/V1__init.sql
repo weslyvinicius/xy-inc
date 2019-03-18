@@ -2,8 +2,7 @@ CREATE TABLE `estabelecimento` (
   `id` bigint(20) NOT NULL,
   `nome` varchar(255) NOT NULL,
   `posicao_x` INT NOT NULL,
-  `posicao_Y` INT NOT NULL,
-
+  `posicao_y` INT NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
