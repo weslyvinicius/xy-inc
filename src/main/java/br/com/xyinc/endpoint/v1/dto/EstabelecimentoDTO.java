@@ -2,6 +2,7 @@ package br.com.xyinc.endpoint.v1.dto;
 
 import lombok.Builder;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -16,14 +17,15 @@ public class EstabelecimentoDTO {
 
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "validacao_default.campo_vazio")
+    @Length(max = 255, message = "validacao_default.tamanho_maximo_do_campo")
     private String nome;
 
-    @NotNull
-    @Min(0)
+    @NotNull(message = "validacao_default.campo_vazio")
+    @Min(value = 0, message = "validacao_default.campo_deve_ser_maior_que_zero")
     private Integer posicaoX;
 
-    @NotNull
-    @Min(0)
+    @NotNull(message = "validacao_default.campo_vazio")
+    @Min(value = 0, message = "validacao_default.campo_deve_ser_maior_que_zero")
     private Integer posicaoY;
 }

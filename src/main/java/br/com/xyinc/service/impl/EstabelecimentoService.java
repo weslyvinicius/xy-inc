@@ -24,4 +24,11 @@ public class EstabelecimentoService implements IEstabelecimentoService {
         log.info("Inicio do metodo service de listar todos os estabelecimentos");
         return estabelecimentoRepository.findAll();
     }
+
+    @Override
+    public Estabelecimento salvar(final Estabelecimento estabelecimento) {
+        log.info("Inicio do metodo service salvar um estabelecimento");
+        Estabelecimento estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimento);
+        return estabelecimentoSalvo;
+    }
 }

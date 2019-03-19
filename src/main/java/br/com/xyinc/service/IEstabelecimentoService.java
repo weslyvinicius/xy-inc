@@ -14,4 +14,10 @@ public interface IEstabelecimentoService {
      * @return Lista de Estabelecimentos
      */
     List<Estabelecimento> listAll();
+
+    /**
+     * Seriço de salvar o cadastro de um estabelecimento
+     * @param estabelecimento
+     */
+    Estabelecimento salvar(Estabelecimento estabelecimento);
 }

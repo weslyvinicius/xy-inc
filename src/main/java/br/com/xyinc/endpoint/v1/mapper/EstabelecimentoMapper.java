@@ -23,12 +23,12 @@ public class EstabelecimentoMapper {
         return Optional.ofNullable(listaEstabelecimento)
                 .orElse(Collections.emptyList())
                 .stream()
-                .map(this::convertEstabecimentoEntityParaEstabelecimentoDTO)
+                .map(this::convertEstabelecimentoEntityParaEstabelecimentoDTO)
                 .collect(Collectors.toList());
 
     }
 
-    public EstabelecimentoDTO convertEstabecimentoEntityParaEstabelecimentoDTO(final Estabelecimento estabelecimentoEntity){
+    public EstabelecimentoDTO convertEstabelecimentoEntityParaEstabelecimentoDTO(final Estabelecimento estabelecimentoEntity){
         log.info("Inicio do metodo converter uma Estabelecimentos Entity para Estbelecimento DTO");
         return Optional.ofNullable(estabelecimentoEntity)
                 .map(estab -> EstabelecimentoDTO.builder()
@@ -39,4 +39,17 @@ public class EstabelecimentoMapper {
                         .build())
                 .orElseThrow(() -> new ResultNotFoundException());
     }
+
+    public Estabelecimento convertEstabelecimentoDTOParaEstabelecimentoEntity(final EstabelecimentoDTO estabelecimentoDTO) {
+        log.info("Inicio do metodo converter uma Estabelecimentos DTO para Estbelecimento");
+        return Optional.ofNullable(estabelecimentoDTO)
+                .map(estab -> Estabelecimento.builder()
+                        .nome(estab.getNome())
+                        .posicaoX(estab.getPosicaoX())
+                        .posicaoY(estab.getPosicaoY())
+                        .build())
+                .orElseThrow(() -> new ResultNotFoundException());
+    }
+
+
 }
