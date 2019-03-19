@@ -1,7 +1,7 @@
-package br.com.xyinc.endpoint.v1;
+package br.com.xyinc.recurso.v1.endpoint;
 
-import br.com.xyinc.endpoint.v1.dto.EstabelecimentoDTO;
-import br.com.xyinc.endpoint.v1.mapper.EstabelecimentoMapper;
+import br.com.xyinc.recurso.v1.dto.EstabelecimentoDTO;
+import br.com.xyinc.recurso.v1.mapper.EstabelecimentoMapper;
 import br.com.xyinc.persistence.entity.Estabelecimento;
 import br.com.xyinc.service.IEstabelecimentoService;
 import io.swagger.annotations.Api;

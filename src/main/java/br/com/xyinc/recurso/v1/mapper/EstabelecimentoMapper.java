@@ -1,6 +1,6 @@
-package br.com.xyinc.endpoint.v1.mapper;
+package br.com.xyinc.recurso.v1.mapper;
 
-import br.com.xyinc.endpoint.v1.dto.EstabelecimentoDTO;
+import br.com.xyinc.recurso.v1.dto.EstabelecimentoDTO;
 import br.com.xyinc.exception.exception_custom.ResultNotFoundException;
 import br.com.xyinc.persistence.entity.Estabelecimento;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package br.com.xyinc.endpoint.v1.dto;
+package br.com.xyinc.recurso.v1.dto;
 
 import lombok.Builder;
 import lombok.Data;
