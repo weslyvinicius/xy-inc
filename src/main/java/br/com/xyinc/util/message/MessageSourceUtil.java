@@ -30,6 +30,14 @@ public class MessageSourceUtil {
         return camposErros;
     }
 
+    public List<String> getListMessages(final List<Map<String, Object[]>> messagens) {
+        List<String> mensagemErro = new ArrayList<>();
+        messagens.forEach(mensMap ->  mensMap.forEach((key, params) -> {
+            mensagemErro.add(getMessageByKey(key, params));
+        }));
+        return mensagemErro;
+    }
+
 
 
 

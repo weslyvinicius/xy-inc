@@ -1,6 +1,7 @@
 package br.com.xyinc.exception.handeler;
 
 import br.com.xyinc.exception.exception_custom.ResultNotFoundException;
+import br.com.xyinc.exception.exception_custom.ValidacaoException;
 import br.com.xyinc.util.message.MessageSourceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,6 +59,18 @@ public class RestExceptionHandler {
                         .build()
                         .addMenssagemErro(messageSourceUtil.getMessageByKey(DEFAULT_INTERNAL_ERROR_KEY));
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(value = ValidacaoException.class)
+    public ResponseEntity<?> methodValidacaoException(ValidacaoException validacaoException) {
+        ResponseHandlerDetail response =
+                ResponseHandlerDetail.builder()
+                        .datetime(LocalDateTime.now())
+                        .status(HttpStatus.BAD_REQUEST.value())
+                        .classeDeError(validacaoException.getClass().getName())
+                        .build()
+                        .addListMenssagemError(messageSourceUtil.getListMessages(validacaoException.getMessages()));
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
 

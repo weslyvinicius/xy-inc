@@ -27,5 +27,9 @@ public class ResponseHandlerDetail {
         this.listaCamposObrigatorios.putAll(listCamposObrigarios);
         return this;
     }
+    public ResponseHandlerDetail addListMenssagemError(final List<String> messagem) {
+        messagem.forEach(this::addMenssagemErro);
+        return this;
+    }
 
 }
