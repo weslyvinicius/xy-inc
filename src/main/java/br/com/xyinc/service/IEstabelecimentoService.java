@@ -1,6 +1,7 @@
 package br.com.xyinc.service;
 
 import br.com.xyinc.persistence.entity.Estabelecimento;
+import br.com.xyinc.recurso.v1.dto.EstabelecimentoPorDistanciaDTO;
 
 import java.util.List;
 
@@ -16,8 +17,15 @@ public interface IEstabelecimentoService {
     List<Estabelecimento> listAll();
 
     /**
-     * Seriço de salvar o cadastro de um estabelecimento
+     * Serviço de salvar o cadastro de um estabelecimento
      * @param estabelecimento
      */
-    Estabelecimento salvar(Estabelecimento estabelecimento);
+    Estabelecimento salvar(final Estabelecimento estabelecimento);
+
+    /**
+     * Serviço de busca dos estabelecimetos por raio
+     * @param estabelecimentoPorDistanciaDTO
+     * @return Lista de Estabelecimetos
+     */
+    List<Estabelecimento> buscaEstabelecimentosPorRaio(final EstabelecimentoPorDistanciaDTO estabelecimentoPorDistanciaDTO);
 }
