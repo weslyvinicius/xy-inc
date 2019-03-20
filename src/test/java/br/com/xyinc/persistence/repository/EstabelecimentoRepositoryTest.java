@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
  **/
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@TestPropertySource("classpath:application-test.properties")
+@ActiveProfiles("test")
 public class EstabelecimentoRepositoryTest {
 
     @Autowired
@@ -58,6 +58,31 @@ public class EstabelecimentoRepositoryTest {
         List<Estabelecimento> listaEstabelecimetos = estabelecimentoRepository.findAll();
 
         assertEquals(listaEstabelecimetos.size(), 7);
+    }
+
+    @Test
+    public void testFindByPosicaoXAndPosicaoY(){
+        Estabelecimento estabelecimento = new Estabelecimento();
+        estabelecimento.setNome("Lanchonete");
+        estabelecimento.setPosicaoX(27);
+        estabelecimento.setPosicaoY(12);
+
+        Estabelecimento estabelecimentoNaPosicao = estabelecimentoRepository.findByPosicaoXAndPosicaoY(27, 12);
+
+        assertEquals(estabelecimento.getNome(), estabelecimentoNaPosicao.getNome());
+        assertEquals(estabelecimento.getPosicaoX(), estabelecimentoNaPosicao.getPosicaoX());
+        assertEquals(estabelecimento.getPosicaoY(), estabelecimentoNaPosicao.getPosicaoY());
+
+    }
+
+    @Test
+    public void testBuscaEstabelecimentoPorRaio(){
+        final Integer posicaoX = 20;
+        final Integer posicaoY = 10;
+        final Integer discancia = 10;
+
+        List<Estabelecimento> listaEstabeleciemntos = estabelecimentoRepository.buscaEstabelecimentoPorRaio(posicaoX, posicaoY, discancia);
+        assertEquals(5, listaEstabeleciemntos.size());
     }
 
 }
