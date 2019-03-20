@@ -7,9 +7,6 @@ A mesma foi desenvolvida em uma arquitetura de serviços utilizando os principio
 
 O Serviço de backend é composto de web services baseados na implementação do [Spring RESTful](https://spring.io/guides/gs/rest-service/) utilizando o JSON como trafego de informações.
 
-### Arquitetura ###
-    RESTfull
-    
 ### Dependências ###    
 As seguintes dependências são necessárias:
 
@@ -26,10 +23,6 @@ As seguintes dependências são necessárias:
 ### Integração Continua ###
 - [TravesCI](https://travis-ci.com/weslyvinicius/xy-inc) 
 
-
-#### API REST ####
-
-A API REST do servidor expõe o seguinte serviço:
 
 ### Instalando a aplicação ###
 Execute o comando para clonar (copiar) o projeto:
@@ -68,9 +61,9 @@ Url           |Verb          |Request Body  | Description
 --------------|------------- |------------- | -------------
 /v1/estabelecimentos      |GET          |void|lista todos os pontos de interesse cadastrado na aplicação.
 /v1/estabelecimentos|POST|JSON| cria um novo ponto de interesse.
-/v1/estabelecimentos?corrdenadaX={coordenadaX}/coordenadaY={coordenadaY}/distancia={distancia}|GET|void| busca pontos de interesse baseado em uma localização `x`, `y` e uma distância máxima (`dMax`).
+/v1/estabelecimentos?{coordenadaX}/{coordenadaY}/{distancia}|GET|void| busca pontos de interesse baseado em uma localização `x`, `y` e uma distância máxima (`dMax`).
 
-##### Tipos de Respostas:##### 
+##### Tipos de Respostas ##### 
 
 | Código | Nome                   | Descrição                                                            |
 |--------|------------------------|----------------------------------------------------------------------| 
