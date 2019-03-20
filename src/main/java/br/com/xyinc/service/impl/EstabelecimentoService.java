@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Criado por @autor wcardoso2  em 3/18/2019
@@ -33,11 +34,12 @@ public class EstabelecimentoService implements IEstabelecimentoService {
         Estabelecimento estabelecimentoSalvo;
 
         log.info("Verifica se o estabelecimento já existe na mesma posicao X e Y");
-        Estabelecimento estabelecimentoJaExitente =  estabelecimentoRepository.findByPosicaoXAndPosicaoY(estabelecimento.getPosicaoX(), estabelecimento.getPosicaoY() );
-        if (estabelecimentoJaExitente != null){
+        Optional<Estabelecimento> estabelecimentoJaExitente =  Optional.ofNullable(estabelecimentoRepository.findByPosicaoXAndPosicaoY(estabelecimento.getPosicaoX(), estabelecimento.getPosicaoY() ));
+        if (estabelecimentoJaExitente.isPresent()){
             log.info("Caso já exista o cadastro na mesma posicao atualizado o estabelecimento.");
-            estabelecimentoJaExitente.setNome(estabelecimento.getNome());
-            estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimentoJaExitente);
+            Estabelecimento estabelecimentoUpdate = estabelecimentoJaExitente.get();
+            estabelecimentoUpdate.setNome(estabelecimento.getNome());
+            estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimentoUpdate);
         }else{
             estabelecimentoSalvo = estabelecimentoRepository.save(estabelecimento);
         }
