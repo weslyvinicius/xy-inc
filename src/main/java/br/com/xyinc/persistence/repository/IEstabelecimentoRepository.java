@@ -19,7 +19,6 @@ public interface IEstabelecimentoRepository extends JpaRepository<Estabeleciment
 
     @Transactional(readOnly = true)
     @Query(value = "SELECT * FROM estabelecimento e " +
-           "WHERE e.posicao_x between (:posX - :distancia) AND (:posX+ :distancia) " +
-           "AND   e.posicao_y between (:posY - :distancia) AND (:posY+ :distancia)", nativeQuery = true)
+           " WHERE power((e.posicao_x-(:posX)),2) + power(e.posicao_y-(:posY),2) <= POWER(:distancia, 2)", nativeQuery = true)
     List<Estabelecimento> buscaEstabelecimentoPorRaio( @Param("posX") Integer posicaoX, @Param("posY") Integer posicaoY, @Param("distancia") Integer distancia);
 }
