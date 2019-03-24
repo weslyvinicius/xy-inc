@@ -82,7 +82,7 @@ public class EstabelecimentoRepositoryTest {
         final Integer discancia = 10;
 
         List<Estabelecimento> listaEstabeleciemntos = estabelecimentoRepository.buscaEstabelecimentoPorRaio(posicaoX, posicaoY, discancia);
-        assertEquals(5, listaEstabeleciemntos.size());
+        assertEquals(4, listaEstabeleciemntos.size());
     }
 
 }
