@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/weslyvinicius/xy-inc.svg?branch=master)](https://travis-ci.com/weslyvinicius/xy-inc)
+[![Coverage Status](https://coveralls.io/repos/github/weslyvinicius/xy-inc.svg?branch=master)](https://coveralls.io/github/weslyvinicius/xy-inc?branch=master)
 
 # XY Inc | Pontos de Interesse (POIs) #
 
