@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/weslyvinicius/xy-inc.svg?branch=master)](https://travis-ci.com/weslyvinicius/xy-inc)
 [![Coverage Status](https://coveralls.io/repos/github/weslyvinicius/xy-inc/badge.svg?branch=master)](https://coveralls.io/github/weslyvinicius/xy-inc?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/weslyvinicius/xy-inc/badge.svg)](https://snyk.io/test/github/weslyvinicius/xy-inc)
+[![GitHub version](https://badge.fury.io/gh/weslyvinicius%2Fxy-inc.svg)](https://badge.fury.io/gh/weslyvinicius%2Fxy-inc)
 
 # XY Inc | Pontos de Interesse (POIs) #
 
